@@ -5,6 +5,10 @@ const MongoClient = require("mongodb").MongoClient;
 const jwt = require("jwt-simple");
 
 const app = express();
+
+// middleware to parse request body
+app.use(express.json()); 
+
 require("dotenv").config();
 const { PORT } = process.env;
 
@@ -30,7 +34,6 @@ app.post("/api/authenticate", (req, res) => {
     // send a 401 Unauthorized response if the credentials are invalid
     res.status(401).json({ message: "Invalid email or password" });
   }
-  // return JWT token
 });
 
 app.post("/api/follow/:id", (req, res) => {
@@ -345,8 +348,6 @@ app.post("/api/like/:id", (req, res) => {
   likes.push(currentUserId);
 
   res.json({ message: "Post liked" });
-  // like post logic
-  // ...
 });
 
 app.post("/api/unlike/:id", (req, res) => {

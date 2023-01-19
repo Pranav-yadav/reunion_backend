@@ -1,0 +1,12 @@
+[
+    {
+        "user": "dummy@email.com",
+        "postId": "1",
+        "comment": "This is a great post!"
+    },
+    {
+        "user": "janedoe@example.com",
+        "postId": "1",
+        "comment": "I agree!"
+    }
+]

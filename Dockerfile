@@ -1,12 +1,15 @@
 # This file is used to build the Docker image for the application
 # build the image by running:
-# $ docker build -t my-app .
+# $ docker build -t backend .
 
 # Use official MongoDB image
 FROM mongo:latest
 
 # Set the working directory
 WORKDIR /app
+
+# Copy .env.sample to .env
+COPY .env.sample .env
 
 # Copy mongod.conf
 COPY mongod.conf /etc/mongod.conf
