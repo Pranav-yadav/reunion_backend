@@ -1,0 +1,16 @@
+[
+    {
+        "name": "John Doe",
+        "email": "johndoe@example.com",
+        "password": "password",
+        "followers": [],
+        "following": []
+    },
+    {
+        "name": "Jane Doe",
+        "email": "janedoe@example.com",
+        "password": "password",
+        "followers": [],
+        "following": []
+    }
+]
