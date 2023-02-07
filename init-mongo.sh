@@ -1,19 +1,22 @@
 #!/bin/bash
 
+# Create a new database named 'social_media'
+mongo admin --eval "db.createDatabase('social_media')"
+
 # Create required collections
-mongo admin --eval "db.createCollection('users')"
-mongo admin --eval "db.createCollection('posts')"
-mongo admin --eval "db.createCollection('likes')"
-mongo admin --eval "db.createCollection('comments')"
+mongo social_media --eval "db.createCollection('users')"
+mongo social_media --eval "db.createCollection('posts')"
+mongo social_media --eval "db.createCollection('likes')"
+mongo social_media --eval "db.createCollection('comments')"
 
 # Import data into the 'users' collection
-mongoimport --db admin --collection users --file /app/data/users.json
+mongoimport --db social_media --collection users --file /app/data/users.json
 
 # Import data into the 'posts' collection
-mongoimport --db admin --collection posts --file /app/data/posts.json
+mongoimport --db social_media --collection posts --file /app/data/posts.json
 
 # Import data into the 'likes' collection
-mongoimport --db admin --collection likes --file /app/data/likes.json
+mongoimport --db social_media --collection likes --file /app/data/likes.json
 
 # Import data into the 'comments' collection
-mongoimport --db admin --collection comments --file /app/data/comments.json
+mongoimport --db social_media --collection comments --file /app/data/comments.json

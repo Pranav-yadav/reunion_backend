@@ -4,12 +4,13 @@
   "description": "Reunion Backend",
   "author": "Pranav Yadav @pranav-yadav <pranavyadav3912@gmail.com>",
   "license": "MIT",
-  "main": "index.js",
+  "main": "server.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Pranav-yadav/reunion_backend.git"
   },
   "scripts": {
+    "start": "node server.js",
     "docker": "chmod +x ./setup_and_start.sh && ./setup_and_start.sh",
     "panic": "docker ps -a && docker images && docker stop backend && docker rm backend && docker rmi backend",
     "test": "echo \"Error: no test specified\" && exit 1"

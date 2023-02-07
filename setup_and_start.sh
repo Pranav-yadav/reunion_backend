@@ -2,12 +2,8 @@
 
 # This script will setup and run the backend apis.
 # build docker image
-echo "[1/2] Building docker image."
-docker build -t backend .
-
-# run docker container
-echo "[2/2] Running docker container."
-docker run -d -p 3000:3000 --name backend backend:latest
+docker-compose build
+docker-compose up -d
 # echo ""
 
 # check if container is running

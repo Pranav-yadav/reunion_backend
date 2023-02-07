@@ -1,0 +1,33 @@
+version: '3.7'
+services:
+  backend:
+    build: .
+    container_name: backend_server
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+    depends_on:
+      - mongo
+    command: ["npm", "start"]
+    restart: always
+    restart_policy:
+      condition: on-failure
+      delay: 5s
+      max_attempts: 3
+      window: 120s
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo_server
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db
+    command: ["mongod", "--config", "/etc/mongod.conf"]
+    restart: always
+    restart_policy:
+      condition: on-failure
+      delay: 5s
+      max_attempts: 3
+      window: 120s
